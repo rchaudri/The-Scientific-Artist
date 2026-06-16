@@ -456,40 +456,45 @@ h1 {
 
 .spine-tracklist {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin: 0;
   padding: 0;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--line);
-  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
 }
 
 .spine-tracklist li {
   position: relative;
-  flex: 1 1 150px;
-  min-height: 122px;
+  min-width: 0;
+  min-height: 132px;
   display: grid;
-  align-content: space-between;
-  gap: 0.85rem;
-  padding: 1rem;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 0.7rem;
+  padding: 1.15rem;
+  border-radius: 6px;
   overflow: hidden;
   isolation: isolate;
   background:
-    linear-gradient(135deg, rgba(69, 216, 255, 0.08), transparent 46%),
-    linear-gradient(315deg, rgba(35, 228, 107, 0.06), transparent 56%),
-    rgba(7, 10, 12, 0.94);
+    linear-gradient(145deg, rgba(255, 255, 255, 0.058), transparent 42%),
+    rgba(7, 10, 12, 0.96);
+  box-shadow:
+    inset 0 0 0 1px rgba(226, 238, 255, 0.11),
+    0 20px 58px rgba(0, 0, 0, 0.2);
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .spine-tracklist li::before {
   content: "";
   position: absolute;
-  inset: 0 auto 0 0;
-  width: 4px;
-  background: linear-gradient(180deg, var(--cyan), var(--gold) 56%, var(--acid));
-  opacity: 0.7;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(217, 173, 84, 0.64), rgba(226, 238, 255, 0.16));
+  opacity: 0.58;
   pointer-events: none;
 }
 
@@ -497,14 +502,25 @@ h1 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.13) 48%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 420ms ease;
+  background: radial-gradient(circle at 18% 0%, rgba(217, 173, 84, 0.1), transparent 44%);
+  opacity: 0;
+  transition: opacity 180ms ease;
   pointer-events: none;
 }
 
+.spine-tracklist li:hover {
+  z-index: 2;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.075), transparent 42%),
+    rgba(11, 13, 15, 0.98);
+  box-shadow:
+    inset 0 0 0 1px rgba(226, 238, 255, 0.16),
+    0 24px 64px rgba(0, 0, 0, 0.26);
+  transform: translateY(-1px);
+}
+
 .spine-tracklist li:hover::after {
-  transform: translateX(120%);
+  opacity: 1;
 }
 
 .spine-kicker {
@@ -512,39 +528,41 @@ h1 {
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  width: fit-content;
-  color: var(--gold);
-  font-size: 0.72rem;
+  justify-content: space-between;
+  gap: 0.7rem;
+  width: 100%;
+  color: rgba(217, 173, 84, 0.88);
+  font-size: 0.68rem;
   font-weight: 900;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .spine-kicker b {
   display: inline-grid;
-  min-width: 2rem;
-  min-height: 1.45rem;
+  width: 2rem;
+  height: 1.55rem;
   place-items: center;
-  border: 1px solid rgba(217, 173, 84, 0.48);
-  border-radius: 999px;
-  background: rgba(5, 6, 8, 0.6);
+  border: 1px solid rgba(226, 238, 255, 0.12);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.045);
   color: var(--text);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   line-height: 1;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
 }
 
 .spine-tracklist a {
   position: relative;
   z-index: 1;
+  align-self: end;
   color: var(--text);
   text-decoration: none;
-  font-size: clamp(1.05rem, 2vw, 1.32rem);
-  line-height: 1.08;
-  font-weight: 900;
+  font-size: clamp(1rem, 1.7vw, 1.18rem);
+  line-height: 1.1;
+  font-weight: 850;
 }
 
 .spine-tracklist a:hover {
@@ -555,10 +573,10 @@ h1 {
   position: relative;
   z-index: 1;
   align-self: end;
-  color: var(--dim);
-  font-size: 0.78rem;
+  color: rgba(168, 180, 191, 0.74);
+  font-size: 0.76rem;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.03em;
 }
 
@@ -566,9 +584,8 @@ h1 {
 .tracklist li.is-final,
 .lyric-card.is-final {
   background:
-    linear-gradient(135deg, rgba(69, 216, 255, 0.13), transparent 44%),
-    linear-gradient(315deg, rgba(35, 228, 107, 0.1), transparent 52%),
-    rgba(8, 12, 13, 0.96);
+    linear-gradient(145deg, rgba(217, 173, 84, 0.08), transparent 44%),
+    rgba(8, 11, 12, 0.96);
 }
 
 .section {
@@ -1536,11 +1553,7 @@ h1 {
   }
 
   .spine-tracklist {
-    display: flex;
-  }
-
-  .spine-tracklist li {
-    flex-basis: calc(50% - 1px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1705,11 +1718,10 @@ h1 {
   }
 
   .spine-tracklist {
-    display: flex;
+    grid-template-columns: 1fr;
   }
 
   .spine-tracklist li {
-    flex-basis: 100%;
     min-height: 108px;
   }
 
