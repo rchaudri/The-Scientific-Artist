@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Canonical machine-readable summary: https://thescientificartist.org/llms.txt
 Sitemap: https://thescientificartist.org/sitemap.xml

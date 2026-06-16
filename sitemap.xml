@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://thescientificartist.org/</loc></url>
+  <url><loc>https://thescientificartist.org/llms.txt</loc></url>
   <url><loc>https://thescientificartist.org/album/</loc></url>
   <url><loc>https://thescientificartist.org/lyrics/</loc></url>
   <url><loc>https://thescientificartist.org/lyrics/track-01/</loc></url>

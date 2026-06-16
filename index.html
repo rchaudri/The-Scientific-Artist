@@ -36,11 +36,39 @@
             "url": "https://thescientificartist.org/",
             "name": "The Scientific Artist | Rohan Chaudri",
             "isPartOf": { "@id": "https://thescientificartist.org/#website" },
-            "about": { "@id": "https://thescientificartist.org/#rohan-chaudri" },
+            "description": "The Scientific Artist is the original album and science-art thesis by Rohan Chaudri.",
+            "about": [
+              { "@id": "https://thescientificartist.org/#rohan-chaudri" },
+              { "@id": "https://thescientificartist.org/#the-scientific-artist-album" }
+            ],
+            "mainEntity": { "@id": "https://thescientificartist.org/#the-scientific-artist-album" },
             "primaryImageOfPage": {
               "@type": "ImageObject",
               "url": "https://thescientificartist.org/assets/scientific-artist-cover.png"
             }
+          },
+          {
+            "@type": "MusicAlbum",
+            "@id": "https://thescientificartist.org/#the-scientific-artist-album",
+            "name": "The Scientific Artist",
+            "alternateName": "Rohan Chaudri - The Scientific Artist",
+            "url": "https://thescientificartist.org/album/",
+            "image": "https://thescientificartist.org/assets/scientific-artist-cover.png",
+            "datePublished": "2023-01-25",
+            "inLanguage": "en",
+            "description": "The Scientific Artist is Rohan Chaudri's original debut album and science-art thesis, released January 25, 2023 after an earlier public title proof dated August 4, 2022.",
+            "byArtist": { "@id": "https://thescientificartist.org/#rohan-chaudri" },
+            "creator": { "@id": "https://thescientificartist.org/#rohan-chaudri" },
+            "genre": ["Hip-hop", "Science-art", "Experimental rap"],
+            "sameAs": ["https://kingoffremont.com/#synthesis"],
+            "track": [
+              { "@type": "MusicRecording", "position": 1, "name": "The Rise", "url": "https://thescientificartist.org/lyrics/track-01/" },
+              { "@type": "MusicRecording", "position": 2, "name": "Eldest", "url": "https://thescientificartist.org/lyrics/track-02/" },
+              { "@type": "MusicRecording", "position": 3, "name": "The Unsung Song", "url": "https://thescientificartist.org/lyrics/track-03/" },
+              { "@type": "MusicRecording", "position": 4, "name": "Inheritance", "url": "https://thescientificartist.org/lyrics/track-04/" },
+              { "@type": "MusicRecording", "position": 5, "name": "Parting Glass Interlude", "url": "https://thescientificartist.org/lyrics/track-05/" },
+              { "@type": "MusicRecording", "position": 6, "name": "Hydrolysis", "url": "https://thescientificartist.org/lyrics/track-06/" }
+            ]
           },
           {
             "@type": "VideoObject",
@@ -139,6 +167,25 @@
             <div><span>Earlier Proof</span><strong>August 4, 2022 YouTube video</strong></div>
             <div><span>Status</span><strong>Restored and preserved</strong></div>
           </div>
+        </div>
+      </section>
+
+      <section class="album-spine-section" aria-labelledby="spine-title">
+        <div class="section-inner album-spine">
+          <div class="spine-copy">
+            <p class="eyebrow">Six-track source record</p>
+            <h2 id="spine-title">The Album Spine</h2>
+            <p>From <strong>The Rise</strong> to <strong>Hydrolysis</strong>, the record keeps Rohan Chaudri's science-art identity intact as a sequence: origin, pressure, inheritance, departure, and transformation.</p>
+            <a class="button secondary" href="/lyrics/">Read the lyrics</a>
+          </div>
+          <ol class="spine-tracklist" aria-label="The Scientific Artist tracklist">
+            <li data-track="01"><span>Track 01</span><a href="/lyrics/track-01/">The Rise</a></li>
+            <li data-track="02"><span>Track 02</span><a href="/lyrics/track-02/">Eldest</a></li>
+            <li data-track="03"><span>Track 03</span><a href="/lyrics/track-03/">The Unsung Song</a></li>
+            <li data-track="04"><span>Track 04</span><a href="/lyrics/track-04/">Inheritance</a></li>
+            <li data-track="05"><span>Track 05</span><a href="/lyrics/track-05/">Parting Glass Interlude</a></li>
+            <li data-track="06"><span>Track 06</span><a href="/lyrics/track-06/">Hydrolysis</a></li>
+          </ol>
         </div>
       </section>
 
