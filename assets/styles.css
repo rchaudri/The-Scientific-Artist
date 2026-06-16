@@ -746,6 +746,60 @@ h1 {
   overflow-wrap: anywhere;
 }
 
+.sequence-list {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1.15rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sequence-item {
+  display: grid;
+  grid-template-columns: minmax(8.5rem, 0.28fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  border-left: 3px solid rgba(69, 216, 255, 0.72);
+  padding: 0.75rem 0 0.75rem 0.9rem;
+  background: rgba(9, 13, 18, 0.64);
+}
+
+.sequence-item.is-later {
+  border-left-color: rgba(211, 76, 76, 0.88);
+  background: linear-gradient(90deg, rgba(211, 76, 76, 0.14), rgba(9, 13, 18, 0.64));
+}
+
+.sequence-date {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 950;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.sequence-copy {
+  display: grid;
+  gap: 0.28rem;
+  color: var(--muted);
+}
+
+.sequence-copy strong {
+  color: var(--text);
+  font-size: 1.02rem;
+  line-height: 1.15;
+}
+
+.sequence-copy span {
+  line-height: 1.35;
+}
+
+.sequence-callout {
+  border-top: 1px solid var(--line);
+  padding-top: 0.95rem;
+  color: var(--text) !important;
+  font-weight: 850;
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -1554,6 +1608,11 @@ h1 {
 
   .spine-tracklist {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sequence-item {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
   }
 }
 
