@@ -16,7 +16,7 @@ Static authorship archive for **The Scientific Artist** by Rohan Chaudri.
   - `assets/rohan-scientific-artist-type.png`
   - `assets/later-overlap-type.png`
   - `assets/later-overlap-site-screenshot.png`
-- Favicon: `assets/favicon.jpg`
+- Favicons: `favicon.ico`, `assets/favicon.png`, `apple-touch-icon.png`
 
 ## Deployment Notes
 
