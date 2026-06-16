@@ -13,6 +13,8 @@
   --gold: #d9ad54;
   --red: #d34c4c;
   --green: #68d391;
+  --acid: #23e46b;
+  --shadow: rgba(0, 0, 0, 0.62);
   --max: 1180px;
   --radius: 8px;
   color-scheme: dark;
@@ -31,9 +33,10 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    linear-gradient(rgba(69, 216, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(69, 216, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(217, 173, 84, 0.045), transparent 34rem),
+    linear-gradient(rgba(69, 216, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(69, 216, 255, 0.026) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(35, 228, 107, 0.08), transparent 18rem),
+    linear-gradient(135deg, rgba(217, 173, 84, 0.035), transparent 42rem),
     var(--bg);
   background-size: 42px 42px, 42px 42px, auto, auto;
   color: var(--text);
@@ -77,8 +80,8 @@ a {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: rgba(5, 6, 8, 0.88);
-  backdrop-filter: blur(16px);
+  background: rgba(3, 5, 6, 0.82);
+  backdrop-filter: blur(18px) saturate(140%);
 }
 
 .nav-shell {
@@ -453,8 +456,8 @@ h1 {
 
 .spine-tracklist {
   list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1px;
   margin: 0;
   padding: 0;
@@ -466,16 +469,17 @@ h1 {
 
 .spine-tracklist li {
   position: relative;
-  min-height: 136px;
+  flex: 1 1 150px;
+  min-height: 116px;
   display: grid;
   align-content: space-between;
-  gap: 1.1rem;
-  padding: 1rem;
+  gap: 0.85rem;
+  padding: 0.95rem;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(69, 216, 255, 0.085), transparent 48%),
-    linear-gradient(315deg, rgba(217, 173, 84, 0.095), transparent 54%),
-    rgba(9, 13, 18, 0.9);
+    linear-gradient(135deg, rgba(69, 216, 255, 0.08), transparent 46%),
+    linear-gradient(315deg, rgba(35, 228, 107, 0.06), transparent 56%),
+    rgba(7, 10, 12, 0.94);
 }
 
 .spine-tracklist li::before {
@@ -529,6 +533,26 @@ h1 {
   color: var(--cyan);
 }
 
+.spine-tracklist em {
+  position: relative;
+  z-index: 1;
+  align-self: end;
+  color: var(--dim);
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.spine-tracklist li.is-final,
+.tracklist li.is-final,
+.lyric-card.is-final {
+  background:
+    linear-gradient(135deg, rgba(69, 216, 255, 0.13), transparent 44%),
+    linear-gradient(315deg, rgba(35, 228, 107, 0.1), transparent 52%),
+    rgba(8, 12, 13, 0.96);
+}
+
 .section {
   padding: clamp(3.5rem, 7vw, 7rem) 0;
   border-bottom: 1px solid var(--line);
@@ -536,6 +560,10 @@ h1 {
 
 .section.alt {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent);
+}
+
+.section.compact-section {
+  padding: clamp(2.25rem, 5vw, 4rem) 0;
 }
 
 .section-inner {
@@ -586,7 +614,9 @@ h1 {
   position: relative;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.014)),
+    rgba(5, 7, 8, 0.72);
   transition: border-color 180ms ease, background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -602,7 +632,7 @@ h1 {
   right: 0.8rem;
   top: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(69, 216, 255, 0.62), rgba(217, 173, 84, 0.38), transparent);
+  background: linear-gradient(90deg, transparent, rgba(69, 216, 255, 0.54), rgba(35, 228, 107, 0.32), transparent);
   opacity: 0.7;
 }
 
@@ -630,6 +660,16 @@ h1 {
 .doc-panel h3 {
   margin: 0;
   font-size: 1.08rem;
+}
+
+.lyric-card {
+  display: grid;
+  align-content: start;
+  min-height: 142px;
+}
+
+.lyric-card h3 {
+  line-height: 1.15;
 }
 
 .archive-card p,
@@ -729,8 +769,8 @@ h1 {
 }
 
 .button.secondary {
-  border-color: rgba(217, 173, 84, 0.42);
-  background: rgba(217, 173, 84, 0.08);
+  border-color: rgba(217, 173, 84, 0.34);
+  background: rgba(217, 173, 84, 0.065);
 }
 
 .button:hover {
@@ -758,6 +798,10 @@ h1 {
     var(--bg-2);
 }
 
+.page-hero.compact-hero {
+  padding: clamp(3rem, 7vw, 5.5rem) 0 clamp(1.8rem, 4vw, 3rem);
+}
+
 .page-hero-inner {
   width: min(calc(100% - 2rem), var(--max));
   margin: 0 auto;
@@ -765,6 +809,135 @@ h1 {
 
 .page-hero .lead {
   max-width: 72ch;
+}
+
+.album-record-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(226, 238, 255, 0.12);
+  padding: clamp(3.5rem, 7vw, 6.4rem) 0 clamp(2.4rem, 5vw, 4.3rem);
+  background:
+    linear-gradient(180deg, rgba(35, 228, 107, 0.32), rgba(8, 13, 10, 0.28) 42%, rgba(5, 6, 8, 0.98) 100%),
+    linear-gradient(90deg, rgba(5, 6, 8, 0.62), rgba(5, 6, 8, 0.22) 52%, rgba(5, 6, 8, 0.82)),
+    #071006;
+}
+
+.album-record-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 34%;
+  background: linear-gradient(180deg, transparent, rgba(5, 6, 8, 0.92));
+  pointer-events: none;
+}
+
+.album-record {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: clamp(170px, 22vw, 250px) minmax(0, 1fr);
+  gap: clamp(1.4rem, 3.4vw, 2.4rem);
+  align-items: end;
+}
+
+.album-record-cover {
+  position: relative;
+  margin: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #030405;
+  box-shadow:
+    0 34px 70px var(--shadow),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 0 70px rgba(35, 228, 107, 0.14);
+}
+
+.album-record-cover img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.album-record-copy .page-title {
+  max-width: none;
+  font-size: clamp(3rem, 8.8vw, 6.1rem);
+  text-wrap: balance;
+}
+
+.album-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  color: rgba(244, 248, 251, 0.7);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.album-credit span::before {
+  content: "\2022";
+  margin-right: 0.45rem;
+  color: rgba(244, 248, 251, 0.42);
+}
+
+.album-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.play-button {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--acid);
+  color: #031006;
+  box-shadow: 0 16px 38px rgba(35, 228, 107, 0.22);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.play-button span {
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 15px solid currentColor;
+}
+
+.play-button:hover {
+  filter: brightness(1.07);
+  transform: translateY(-1px) scale(1.02);
+}
+
+.album-list-section {
+  padding-top: clamp(2.2rem, 5vw, 4.2rem);
+  background:
+    linear-gradient(180deg, rgba(5, 6, 8, 0.96), rgba(5, 6, 8, 0.86)),
+    linear-gradient(90deg, rgba(35, 228, 107, 0.05), transparent 38%);
+}
+
+.album-table-head {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 88px;
+  gap: 1rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(226, 238, 255, 0.13);
+  padding: 0 1rem 0.55rem;
+  color: var(--dim);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.album-table-head span:last-child {
+  text-align: right;
 }
 
 .split {
@@ -779,6 +952,10 @@ h1 {
   border-radius: var(--radius);
   background: #050608;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+.album-metadata {
+  align-self: start;
 }
 
 .metadata-block {
@@ -803,6 +980,11 @@ h1 {
   border-radius: var(--radius);
 }
 
+.stream-tracklist {
+  border: 0;
+  border-radius: 0;
+}
+
 .tracklist li {
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr) auto;
@@ -810,6 +992,22 @@ h1 {
   align-items: center;
   padding: 0.9rem 1rem;
   border-bottom: 1px solid var(--line);
+}
+
+.stream-tracklist li {
+  grid-template-columns: 48px minmax(0, 1fr) 88px;
+  border-bottom-color: rgba(226, 238, 255, 0.075);
+  border-radius: 5px;
+  padding: 0.72rem 1rem;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.stream-tracklist li:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.tracklist li.is-final {
+  border-color: rgba(107, 220, 255, 0.24);
 }
 
 .tracklist li:last-child {
@@ -828,6 +1026,29 @@ h1 {
   text-decoration: none;
 }
 
+.stream-tracklist a {
+  display: grid;
+  gap: 0.08rem;
+}
+
+.stream-tracklist a strong {
+  font-weight: 850;
+}
+
+.stream-tracklist a small {
+  color: var(--dim);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.stream-tracklist time {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 850;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
 .tracklist a:hover {
   color: var(--cyan);
 }
@@ -836,6 +1057,17 @@ h1 {
   color: var(--dim);
   font-size: 0.82rem;
   font-weight: 800;
+}
+
+.album-legal {
+  margin-top: 1.65rem;
+  color: var(--dim);
+  font-size: 0.85rem;
+  font-weight: 760;
+}
+
+.album-legal p {
+  margin: 0.15rem 0;
 }
 
 .timeline {
@@ -1011,6 +1243,14 @@ h1 {
   background: rgba(255, 255, 255, 0.035);
 }
 
+.outro-sheet {
+  width: min(calc(100% - 2rem), 720px);
+  background:
+    linear-gradient(135deg, rgba(69, 216, 255, 0.08), transparent 42%),
+    linear-gradient(315deg, rgba(217, 173, 84, 0.08), transparent 48%),
+    rgba(255, 255, 255, 0.035);
+}
+
 .lyric-meta {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1031,6 +1271,37 @@ h1 {
   padding-top: 1.4rem;
   color: #dce6ed;
   font-weight: 750;
+}
+
+.final-note {
+  border-top-color: rgba(107, 220, 255, 0.28);
+}
+
+.outro-mark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(226, 238, 255, 0.16);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  background: rgba(5, 6, 8, 0.52);
+}
+
+.outro-mark span {
+  color: rgba(255, 255, 255, 0.16);
+  font-size: clamp(2.4rem, 9vw, 4.6rem);
+  line-height: 0.85;
+  font-weight: 950;
+  font-variant-numeric: tabular-nums;
+}
+
+.outro-mark strong {
+  color: var(--gold);
+  font-size: clamp(1.25rem, 4vw, 2.2rem);
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .lyrics-lines {
@@ -1217,6 +1488,7 @@ h1 {
   .grid.two,
   .section-header,
   .split,
+  .album-record,
   .album-spine,
   .comparison-grid,
   .analysis-grid,
@@ -1229,8 +1501,24 @@ h1 {
     margin-top: 2rem;
   }
 
+  .album-record {
+    align-items: start;
+  }
+
+  .album-record-cover {
+    width: min(100%, 280px);
+  }
+
+  .album-record-copy .page-title {
+    max-width: 100%;
+  }
+
   .spine-tracklist {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+  }
+
+  .spine-tracklist li {
+    flex-basis: calc(50% - 1px);
   }
 }
 
@@ -1339,12 +1627,51 @@ h1 {
     gap: 0.25rem;
   }
 
+  .album-record-hero {
+    padding: 1.7rem 0 2.2rem;
+  }
+
+  .album-record-cover {
+    width: min(100%, 220px);
+  }
+
+  .album-record-copy .page-title {
+    max-width: 100%;
+    font-size: clamp(2.35rem, 12vw, 3.4rem);
+  }
+
+  .album-credit {
+    gap: 0.28rem;
+    font-size: 0.88rem;
+  }
+
+  .album-actions {
+    display: grid;
+    grid-template-columns: 56px 1fr 1fr;
+  }
+
+  .album-actions .button {
+    min-width: 0;
+    padding-inline: 0.75rem;
+  }
+
+  .album-table-head {
+    grid-template-columns: 34px minmax(0, 1fr) 52px;
+    padding-inline: 0.3rem;
+  }
+
   .hero-facts div {
     min-height: auto;
   }
 
   .tracklist li {
     grid-template-columns: 44px minmax(0, 1fr);
+  }
+
+  .stream-tracklist li {
+    grid-template-columns: 34px minmax(0, 1fr) 52px;
+    gap: 0.6rem;
+    padding-inline: 0.3rem;
   }
 
   .tracklist .status {
@@ -1356,10 +1683,11 @@ h1 {
   }
 
   .spine-tracklist {
-    grid-template-columns: 1fr;
+    display: flex;
   }
 
   .spine-tracklist li {
+    flex-basis: 100%;
     min-height: 108px;
   }
 

@@ -6,11 +6,12 @@ Static authorship archive for **The Scientific Artist** by Rohan Chaudri.
 
 - Album metadata: `album/index.html`
 - Lyric index: `lyrics/index.html`
-- Lyric pages: `lyrics/track-01/` through `lyrics/track-06/`
+- Lyric pages: `lyrics/track-01/` through `lyrics/track-07/`
 - Evidence record: `evidence/index.html`
 - Platform links: `links/index.html`
 - Shared styling: `assets/styles.css`
 - Cover art: `assets/scientific-artist-cover.png`
+- Album reference metadata: 7 songs, 7 min 44 sec, Purifier Records note
 - Copycat exhibit comparison assets:
   - `assets/rohan-scientific-artist-type.png`
   - `assets/later-overlap-type.png`
